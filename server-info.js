@@ -1,8 +1,6 @@
 ServerInfo = {
   settings: {
-    path: '/info',
-    user: 'insecure',
-    password: 'secureme',
+    path: '/_health',
     extras: undefined //a function or any other data to add
   },
 
@@ -67,10 +65,16 @@ function resultify(obj) {
       return str[0] + '_' + str[1].toLowerCase();
     });
 
+    label= label.replace(/n_(.+)/g, function(str, offset) {
+      return str.slice(2);
+    });
+
+    label= label.replace("_count", "");
+
     if(typeof obj[prop] === typeof 1) {
-      if (obj[prop] !== NaN) {
+        var t = obj[prop] === NaN
+        console.log(obj[prop])
         metrics += sprintf("%s_count %d\n", label, obj[prop])
-      }
     } else {
       metrics += collToprop(obj[prop], label)
     }
@@ -94,7 +98,8 @@ function getConnectionCounts() {
     pollingObserveHandlesCount: 0,
     oplogObserveHandles: {},
     pollingObserveHandles: {},
-    usersWithNSubscriptions: {}
+    usersWithNSubscriptions: {},
+    nSessions: 0,
   };
 
   var initKey = function(part, key) {
@@ -112,6 +117,7 @@ function getConnectionCounts() {
   // check out the sessions
   _.each(Meteor.default_server.sessions, function(session, id) {
     results.nSessions += 1;
+    console.log(results.nSessions)
     var subCount = _.keys(session._namedSubs).length;
     results.usersWithNSubscriptions[subCount] = results.usersWithNSubscriptions[subCount] || 0;
     results.usersWithNSubscriptions[subCount] += 1;
