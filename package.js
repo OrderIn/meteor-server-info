@@ -1,6 +1,6 @@
 Package.describe({
-  summary: "Returns diagnostics info on server internals via a connect route.",
-  version: "0.2.3",
+  summary: "Returns diagnostics info on server internals in prometheus exposition format.",
+  version: "0.0.1",
   name: "sevki:prometheus-exporter",
   git: "https://github.com/percolatestudio/meteor-server-info.git"
 });
