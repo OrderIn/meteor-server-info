@@ -1,8 +1,8 @@
 Package.describe({
   summary: "Returns diagnostics info on server internals in prometheus exposition format.",
   version: "0.2.3",
-  name: "sevki:prometheus-exporter",
-  git: "https://github.com/percolatestudio/meteor-server-info.git"
+  name: "orderin:meteor-prometheus-metrics-exporter",
+  git: "https://github.com/OrderIn/meteor-server-info"
 });
 
 Npm.depends({

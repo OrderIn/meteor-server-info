@@ -160,5 +160,6 @@ function getConnectionCounts() {
     });
   }
 
+  console.log('results: ', results);
   return results;
 }

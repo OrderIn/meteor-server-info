@@ -1,4 +1,4 @@
-# sevki:prometheus-exporter (WIP)
+# orderin:meteor-server-info
 
 ## Description
 
@@ -60,6 +60,8 @@ ServerInfo.settings = {
 
 *extras* is an optional field that will be returned as part of the json object. If you provide a function, it will be evaluated and it's return value will be added to the json object.
 
+
+# Original Owner of Project
 ## License
 MIT. (c) Sevki <s@sevki.org>
 
